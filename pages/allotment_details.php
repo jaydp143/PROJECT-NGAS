@@ -20,7 +20,7 @@
         $fourth_qtr=$_POST['fourth_qtr'];
         $total_allotment=$_POST['first_qtr']+$_POST['second_qtr']+$_POST['third_qtr']+$_POST['fourth_qtr'];
         mysqli_query($connection, "UPDATE tbl_allotment SET first_qtr='$first_qtr', second_qtr='$second_qtr', third_qtr='$third_qtr', fourth_qtr='$fourth_qtr', total_allotment='$total_allotment'  WHERE allotment_id='$allotment_id'"); 
-        echo "<script>window.location.href = 'allotment_office.php?id=".$function_id."&&yr=".$budget_year."&&type=".$type."'</script>";
+        echo "<script>window.location.href = 'allotment_details.php?id=".$function_id."&&yr=".$budget_year."&&type=".$type."'</script>";
     }
 ?>
 <!DOCTYPE html>
@@ -243,7 +243,7 @@
             }
         ?> 
         <tr class="text-light" style="background-color:#1167b1;">
-        <th colspan="2" style="text-align:right; width:35%">TOTAL APPROPRIATION AND ALLOTMENT: <?php echo $rowCategory['category'];?> </th>
+        <th colspan="2" style="text-align:right; width:35%">TOTAL APPROPRIATION AND ALLOTMENT:  </th>
         <th style="text-align:center; width:10%"><?php echo number_format($gtApprop,2);?></th>
         <th style="text-align:center; width:9%"><?php echo number_format($gtFirst,2);?></th>
         <th style="text-align:center; width:9%"><?php echo number_format($gtSecond,2);?></th>

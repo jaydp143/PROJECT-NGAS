@@ -2,13 +2,17 @@
 require('./database.php');
 require('./session.php');
 
-
-
+$queryCheckObrNumber="SELECT obr_number FROM tbl_obligation WHERE obr_number='".$_POST["obr_number"]."'";
+$sqlCheckObrNumber=mysqli_query($connection,$queryCheckObrNumber);
+$row=mysqli_fetch_assoc($sqlCheckObrNumber);
  $number = count($_POST["expense_code"]);  
- if($number > 0)  
+ if(mysqli_num_rows($sqlCheckObrNumber)!=0)  
  {  
-     
-     $obr_number=$_POST["obr_number"];
+    echo "OBLIGATION NUMBER ALREADY EXISTS. NOT SAVED"; 
+ }  
+if(mysqli_num_rows($sqlCheckObrNumber)==0) {  
+       
+    $obr_number=$_POST["obr_number"];
      $trans_date=$_POST['trans_date']; 
      $pr_date=$_POST['pr_date']; 
      $pr_number=$_POST["pr_number"];
@@ -49,9 +53,5 @@ require('./session.php');
            
       }  
        echo "SUCCESSFULLY SAVED";
- }  
-     else  
- {  
-      echo "Please Enter Name";  
  }  
  ?> 

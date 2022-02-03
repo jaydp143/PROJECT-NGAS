@@ -196,7 +196,7 @@ while($rowCategory=mysqli_fetch_array($sql2))
           if($curQuarter==1){
             $previous_allotment=0;
             $current_allotment=$rowAllotment['first_qtr'];
-            $total_allotment=$reserved_allotment+$previous_allotment+$current_allotment;
+            $total_allotment=$previous_allotment+$current_allotment;
             $balance_allotment=$rowAllotment['appropriation']-$total_allotment;
 
             
@@ -204,19 +204,19 @@ while($rowCategory=mysqli_fetch_array($sql2))
           else if($curQuarter==2){
             $previous_allotment=$rowAllotment['first_qtr'];
             $current_allotment=$rowAllotment['second_qtr'];
-            $total_allotment=$reserved_allotment+$previous_allotment+$current_allotment;
+            $total_allotment=$previous_allotment+$current_allotment;
             $balance_allotment=$rowAllotment['appropriation']-$total_allotment;
           }
           else if($curQuarter==3){
             $previous_allotment=$rowAllotment['first_qtr']+$rowAllotment['second_qtr'];
             $current_allotment=$rowAllotment['third_qtr'];
-            $total_allotment=$reserved_allotment+$previous_allotment+$current_allotment;
+            $total_allotment=$previous_allotment+$current_allotment;
             $balance_allotment=$rowAllotment['appropriation']-$total_allotment;
           }
           else if($curQuarter==4){
             $previous_allotment=$rowAllotment['first_qtr']+$rowAllotment['second_qtr']+$rowAllotment['third_qtr'];
             $current_allotment=$rowAllotment['fourth_qtr'];
-            $total_allotment=$reserved_allotment+$previous_allotment+$current_allotment;
+            $total_allotment=$previous_allotment+$current_allotment;
             $balance_allotment=$rowAllotment['appropriation']-$total_allotment;
           }
 

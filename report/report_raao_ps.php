@@ -25,7 +25,7 @@ class MYPDF extends TCPDF
         $queryaccounts="SELECT app.amount_appropriation, acc.account_code, acc.account_description FROM tbl_appropriation as app INNER JOIN tbl_accounts as acc ON app.account_code=acc.account_code WHERE acc.acc_category='PERSONAL SERVICES'  AND app.budget_year='".$_POST['budget_year']."' AND app.function_code='".$_POST['function']."'";
         $sqlaccounts=mysqli_query($connection,$queryaccounts);
         $total_accounts=mysqli_num_rows($sqlaccounts);
-        $length=($total_accounts*26)+$l;
+        $length=($total_accounts*28)+$l;
         $width=($total_accounts*17)+$w;
         switch($_POST['month']){
         case 1:
@@ -102,7 +102,7 @@ $w=216;
 $queryaccounts="SELECT app.amount_appropriation, acc.account_code, acc.account_description FROM tbl_appropriation as app INNER JOIN tbl_accounts as acc ON app.account_code=acc.account_code WHERE acc.acc_category='PERSONAL SERVICES'  AND app.budget_year='".$_POST['budget_year']."' AND app.function_code='".$_POST['function']."'";
 $sqlaccounts=mysqli_query($connection,$queryaccounts);
 $total_accounts=mysqli_num_rows($sqlaccounts);
-$length=($total_accounts*26)+$l;
+$length=($total_accounts*28)+$l;
 $width=($total_accounts*17)+$w;
 
 $pdf = new MYPDF('L', 'mm', array($width,$length), true, 'UTF-8', false);
