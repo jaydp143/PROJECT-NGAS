@@ -23,7 +23,7 @@
         echo "
         
     <script type='text/javascript'>
-    alert('Account Already Exist!');
+    alert('Account Code Already Exist! NOT SAVED!');
     window.location.href = 'accounts.php';
     </script>";   
 

@@ -83,7 +83,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">MONTHLY CAFOA </span>
                 <?php 
-                  $queryDailyCafoa="SELECT COUNT(obligation_id) AS monthly_cafoa FROM tbl_obligation WHERE MONTH(trans_date)='".$curMonth."'";
+                  $queryDailyCafoa="SELECT COUNT(obligation_id) AS monthly_cafoa FROM tbl_obligation WHERE MONTH(trans_date)='".$curMonth."' AND YEAR(trans_date)='".$curYear."'";
                   $sqlDailyCafoa=mysqli_query($connection,$queryDailyCafoa);
                   $row=mysqli_fetch_assoc($sqlDailyCafoa);
                   $monthlyCafoa=$row['monthly_cafoa'];

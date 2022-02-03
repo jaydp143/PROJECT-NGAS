@@ -12,13 +12,29 @@
 <!-- adding account -->
 <?php
   if (isset($_POST['btn_save'])) {
-
+    
+    $same_data = mysqli_query($connection,"SELECT * FROM tbl_function WHERE function_code ='".$_POST["code"]."'");
+    if(mysqli_num_rows($same_data)!=0){
+      echo "
+        <script type='text/javascript'>
+        alert('Account Code Already Exist! NOT SAVED!');
+        window.location.href ='function.php';
+        </script>"; 
+    }
+    else if (mysqli_num_rows($same_data)==0){
     $code =mysqli_real_escape_string($connection,$_POST['code']);
     $type =mysqli_real_escape_string($connection,$_POST['type']);
     $description =mysqli_real_escape_string($connection,$_POST['description']);
     mysqli_query($connection,"INSERT INTO tbl_function (function_code, type,description) VALUES ('$code', '$type','$description')");
-    pathTo($pagename);
-  
+    echo "
+        <script type='text/javascript'>
+        alert('SUCCESSFULLY SAVED!');
+        </script>"; 
+    pathTo($pagename); 
+    }
+   
+    
+    
 }
 
  ?>
