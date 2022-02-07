@@ -258,7 +258,7 @@ $tbl.='
         <td style="text-align:center; width:100px">'.$row['obr_number'].'</td>
         <td style="text-align:left; width:450px">'.$row['payee']."-".$row['request'].'</td>
         <td style="text-align:right; width:100px">'.number_format($row['total'],2).'</td>';
-        $query1 = mysqli_query($connection,"SELECT (SELECT amount FROM tbl_expenses as exp WHERE exp.expense_code=app.account_code AND exp.obligation_id='".$row['obligation_id']."') as amount FROM tbl_appropriation as app INNER JOIN tbl_accounts as acc ON app.account_code=acc.account_code WHERE acc.acc_category='PERSONAL SERVICES'  AND app.budget_year='".$_POST['budget_year']."' AND app.function_code='".$_POST['function']."'");
+        $query1 = mysqli_query($connection,"SELECT (SELECT COALESCE(SUM(exp.amount), 0) AS amount1 FROM tbl_expenses as exp WHERE exp.expense_code=app.account_code AND exp.obligation_id='".$row['obligation_id']."' AND MONTH(exp.trans_date)='".$_POST['month']."'AND YEAR(exp.trans_date)='".$_POST['budget_year']."') as amount FROM tbl_appropriation as app INNER JOIN tbl_accounts as acc ON app.account_code=acc.account_code WHERE acc.acc_category='PERSONAL SERVICES'  AND app.budget_year='".$_POST['budget_year']."' AND app.function_code='".$_POST['function']."'");
         while($row1 = mysqli_fetch_array($query1)){    
           $amount="";
           if($row1['amount']!=null)  {
