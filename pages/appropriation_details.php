@@ -93,7 +93,7 @@ if (isset($_POST['updateBtn']))
                         <input type='hidden' name='function_code' value='<?php echo $value['function_code'] ?>' />  
                         <input type='hidden' name='budget_year' value='<?php echo $_GET['yr']; ?>' />    
                         <input type="hidden"  name="type" id="type" value="<?php echo $_GET['type']; ?>">
-                        <button type='submit' class='btn btn-info btn-block  text-light' id='btn_generate' name='btn_generate'><i class='fas fa-print'></i><b> GENERATE REPORT</b></button>
+                        <button type='submit' class='btn btn-info btn-block  text-light' id='btn_generate' name='btn_generate'><i class='fas fa-print'></i><b> GENERATE ANNUAL BUDGET REPORT</b></button>
                     </form>
                 </div>
             </div>

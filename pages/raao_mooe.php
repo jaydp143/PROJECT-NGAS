@@ -145,14 +145,14 @@
 
         ?>
         <div class='card'>
-            <div class="card-header text-primary " style="background-color:#004d00;">
-                 <h3 class="card-title font-weight-bold text-light"></h3>
+            <div class="card-header text-primary ">
+                 <h3 class="card-title font-weight-bold "></h3>
                 <div class="card-tools">
                     <form method='POST' action='../report/report_raao_mooe.php' target="_blank">
                         <input type='hidden' name='function' value='<?php echo $_POST['rp_function'] ?>' />
                         <input type='hidden' name='month' value='<?php echo $_POST['rp_month'] ?>' />  
                         <input type='hidden' name='budget_year' value='<?php echo $_POST['rp_year']; ?>' />    
-                        <button type='submit' class='btn btn-info btn-block btn-sm text-light' id='btn_generate' name='btn_generate'><i class='fas fa-print'></i><b> GENERATE REPORT</b></button>
+                        <button type='submit' class='btn btn-info btn-block  text-light' id='btn_generate' name='btn_generate'><i class='fas fa-print'></i><b> GENERATE RAAOMOOE REPORT</b></button>
                     </form>
                 </div>
             </div>
@@ -220,11 +220,8 @@
         ?>
         
         <div class='card'>
-            <div class="card-header text-primary " style="background-color:#004d00;">
-                 <h3 class="card-title font-weight-bold text-light">LIST OF CAFOA</h3>
-                <div class="card-tools">
-                    
-                </div>
+            <div class='card-header d-flex  justify-content-between align-items-center' >
+                <h6 class='m-0 font-weight-bold '><i class="fas fa-list"></i></h6>
             </div>
             <div class='card-body shadow'>
                 <div class="row">

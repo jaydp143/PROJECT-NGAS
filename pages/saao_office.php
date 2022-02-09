@@ -106,13 +106,13 @@
         <div class="row">
             <div class="col-12">
                 <div class='card'>
-                    <div class="card-header text-primary " style="background-color:#004d00;">
-                        <h3 class="card-title font-weight-bold text-light"><i class="fas fa-list"></i>&emsp;LIST OF CAFOA</h3>
+                    <div class="card-header text-primary ">
+                        <h3 class="card-title font-weight-bold"><i class="fas fa-list"></i></h3>
                         <div class="card-tools">
                             <form method='POST' action='../report/report_saao_office.php' target="_blank">
                                 <input type='hidden' name='function_code' value='<?php echo $_POST['rp_function'] ?>' />  
                                 <input type='hidden' name='budget_year' value='<?php echo $curYear; ?>' />    
-                                <button type='submit' class='btn btn-info btn-block btn-sm text-light' id='btn_generate' name='btn_generate'><i class='fas fa-print'></i><b> GENERATE REPORT</b></button>
+                                <button type='submit' class='btn btn-info btn-block  text-light' id='btn_generate' name='btn_generate'><i class='fas fa-print'></i><b> GENERATE SAAO REPORT</b></button>
                             </form>
                         </div>
                     </div>
@@ -267,8 +267,8 @@
     <div class="row">
             <div class="col-12">
                 <div class='card'>
-                    <div class='card-header d-flex  justify-content-between align-items-center' style="background-color:#004d00;">
-                        <h6 class='m-0 font-weight-bold text-light'><i class="fas fa-list"></i>&emsp;<?php echo 'SAAO 2022  ';  ?></h6>
+                    <div class='card-header d-flex  justify-content-between align-items-center'>
+                        <h6 class='m-0 font-weight-bold '><i class="fas fa-list"></i></h6>
                     </div>
                     <div class='card-body shadow'>
                         <div class="table-responsive">

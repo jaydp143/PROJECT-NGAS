@@ -142,15 +142,15 @@ if (isset($_POST['deleteBtn'])) {
 
         ?>
          <div class='card'>
-            <div class="card-header text-primary " style="background-color:#004d00;">
-                 <h3 class="card-title font-weight-bold text-light">LIST OF CAFOA</h3>
+            <div class="card-header text-primary ">
+                 <h3 class="card-title font-weight-bold ">LIST OF CAFOA</h3>
                 <div class="card-tools">
                     <form method='GET' action='../report/report_monthly_cafoa.php' target="_blank">
                         <input type='hidden' name='dy' value='<?php echo $_POST['rp_day']; ?>' />
                         <input type='hidden' name='mn' value='<?php echo $_POST['rp_month']; ?>' />
                         <input type='hidden' name='yr' value='<?php echo $_POST['rp_year']; ?>' />
                         <input type='hidden' name='fc' value='<?php echo $_POST['rp_function']; ?>' />
-                        <button type='submit' class='btn btn-info btn-block btn-sm text-light' id='btn_generate' name='btn_generate'><i class='fas fa-print'></i><b> GENERATE REPORT</b></button>
+                        <button type='submit' class='btn btn-info btn-block text-light' id='btn_generate' name='btn_generate'><i class='fas fa-print'></i><b> GENERATE CAFOA REPORT</b></button>
                     </form>
                 </div>
             </div>
@@ -284,8 +284,8 @@ if (isset($_POST['deleteBtn'])) {
         <?php } else {
         ?>
         <div class='card'>
-                    <div class="card-header text-primary " style="background-color:#004d00;">
-                 <h3 class="card-title font-weight-bold text-light"><i class="fas fa-list"></i>&emsp;LIST OF CAFOA</h3>
+                    <div class="card-header text-primary " >
+                 <h3 class="card-title font-weight-bold"><i class="fas fa-list"></i>&emsp;LIST OF CAFOA</h3>
                 <div class="card-tools">
                    
                 </div>
