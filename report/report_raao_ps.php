@@ -26,7 +26,7 @@ class MYPDF extends TCPDF
         $sqlaccounts=mysqli_query($connection,$queryaccounts);
         $total_accounts=mysqli_num_rows($sqlaccounts);
         $length=($total_accounts*28)+$l;
-        $width=($total_accounts*17)+$w;
+        $width=$w;
         switch($_POST['month']){
         case 1:
             $month="JANUARY";
@@ -103,7 +103,7 @@ $queryaccounts="SELECT app.amount_appropriation, acc.account_code, acc.account_d
 $sqlaccounts=mysqli_query($connection,$queryaccounts);
 $total_accounts=mysqli_num_rows($sqlaccounts);
 $length=($total_accounts*28)+$l;
-$width=($total_accounts*17)+$w;
+$width=$w;
 
 $pdf = new MYPDF('L', 'mm', array($width,$length), true, 'UTF-8', false);
 // set document information
@@ -194,7 +194,7 @@ $tbl.='
         <th  style="text-align:center; width:100px">DATE</th>
         <th  style="text-align:center; width:100px">REFERENCE/<br>CAFOA No. </th>
         <th  style="text-align:center; width:450px">PARTICULARS</th>
-        <th  style="text-align:center; width:100px">TOTAL AMOUNT <br> OF ALLOTMENT/<br>OBLIGATION'.$total_accounts.'</th>';
+        <th  style="text-align:center; width:100px">TOTAL AMOUNT <br> OF ALLOTMENT/<br>OBLIGATION</th>';
         while($rowAccounts = mysqli_fetch_array($sqlaccounts)){ 
           $tbl.='<th  style="text-align:center; width:100px">'.$rowAccounts['account_code'].'<br>'.$rowAccounts['account_description'].'</th>';
         }
@@ -256,7 +256,7 @@ $tbl.='
         <td style="text-align:center; width:150px"></td>
         <td style="text-align:center; width:100px" >'.$row['trans_date'].'</td>
         <td style="text-align:center; width:100px">'.$row['obr_number'].'</td>
-        <td style="text-align:left; width:450px">'.$row['payee']."-".$row['request'].'</td>
+        <td style="text-align:left; width:450px">'.$row['payee']."-".$row['request'].'-'.$row['pr_number'].'</td>
         <td style="text-align:right; width:100px">'.number_format($row['total'],2).'</td>';
         $query1 = mysqli_query($connection,"SELECT (SELECT COALESCE(SUM(exp.amount), 0) AS amount1 FROM tbl_expenses as exp WHERE exp.expense_code=app.account_code AND exp.obligation_id='".$row['obligation_id']."' AND MONTH(exp.trans_date)='".$_POST['month']."'AND YEAR(exp.trans_date)='".$_POST['budget_year']."') as amount FROM tbl_appropriation as app INNER JOIN tbl_accounts as acc ON app.account_code=acc.account_code WHERE acc.acc_category='PERSONAL SERVICES'  AND app.budget_year='".$_POST['budget_year']."' AND app.function_code='".$_POST['function']."'");
         while($row1 = mysqli_fetch_array($query1)){    
