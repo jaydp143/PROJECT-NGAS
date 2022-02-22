@@ -20,20 +20,18 @@
 
     if (mysqli_num_rows($same_data)!=0) {
 
-        echo "
-        
+    echo "
     <script type='text/javascript'>
     alert('Account Code Already Exist! NOT SAVED!');
     window.location.href = 'accounts.php';
     </script>";   
-
     }
     else if(mysqli_num_rows($same_data)==0){
 
-  mysqli_query($connection,"INSERT INTO tbl_accounts (account_code, account_description, acc_category) VALUES ('$account_code', '$description', '$acc_category')");
+      mysqli_query($connection,"INSERT INTO tbl_accounts (account_code, account_description, acc_category) VALUES ('$account_code', '$description', '$acc_category')");
 
-  echo "
-   <script type='text/javascript'>
+      echo "
+      <script type='text/javascript'>
     alert('You have Successfully Added');
     window.location.href = 'accounts.php';
     </script>
