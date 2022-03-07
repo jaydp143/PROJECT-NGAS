@@ -332,7 +332,7 @@ $tbl.='</tr>
         <td style="text-align:right; width:450px"><b>Balance Total To Date:</b></td>';
         
           $tbl.='<td  style="text-align:right; width:100px"><b>'.number_format($total_allotment-$total_to_date['amount'],2).'</b></td>';
-        
+         
 
         $query1 = mysqli_query($connection,"SELECT app.account_code,app.total_allotment,
 (SELECT COALESCE(SUM(exp.amount), 0) AS amount FROM tbl_expenses as exp WHERE exp.expense_code=app.account_code AND MONTH(trans_date) BETWEEN '1' AND '11' AND YEAR(exp.trans_date)='".$_POST['budget_year']."'AND exp.function='".$_POST['function']."' ) as amount,

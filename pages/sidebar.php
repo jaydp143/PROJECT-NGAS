@@ -14,9 +14,9 @@
             <li class="nav-item">
                 <a href="./dashboard.php" class="nav-link <?php echo $db; ?>">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                    &emsp;DASHBOARD
-                </p>
+                  <p>
+                      &emsp;DASHBOARD
+                  </p>
                 </a>
             </li>
 

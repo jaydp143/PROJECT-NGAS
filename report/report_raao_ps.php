@@ -335,8 +335,8 @@ $tbl.='</tr>
         
 
         $query1 = mysqli_query($connection,"SELECT app.account_code,app.total_allotment,
-(SELECT COALESCE(SUM(exp.amount), 0) AS amount FROM tbl_expenses as exp WHERE exp.expense_code=app.account_code AND MONTH(trans_date) BETWEEN '1' AND '11' AND YEAR(exp.trans_date)='".$_POST['budget_year']."'AND exp.function='".$_POST['function']."' ) as amount,
-(app.total_allotment-(SELECT COALESCE(SUM(exp.amount), 0) AS amount FROM tbl_expenses as exp WHERE exp.expense_code=app.account_code AND MONTH(trans_date) BETWEEN '1' AND '11' AND YEAR(exp.trans_date)='".$_POST['budget_year']."'AND exp.function='".$_POST['function']."' )) as balance FROM tbl_allotment as app INNER JOIN tbl_accounts as acc ON app.account_code=acc.account_code WHERE acc.acc_category='PERSONAL SERVICES'  AND app.budget_year='".$_POST['budget_year']."' AND app.function_code='".$_POST['function']."'");
+(SELECT COALESCE(SUM(exp.amount), 0) AS amount FROM tbl_expenses as exp WHERE exp.expense_code=app.account_code AND MONTH(trans_date) BETWEEN '1' AND '".$_POST['month']."' AND YEAR(exp.trans_date)='".$_POST['budget_year']."'AND exp.function='".$_POST['function']."' ) as amount,
+(app.total_allotment-(SELECT COALESCE(SUM(exp.amount), 0) AS amount FROM tbl_expenses as exp WHERE exp.expense_code=app.account_code AND MONTH(trans_date) BETWEEN '1' AND '".$_POST['month']."' AND YEAR(exp.trans_date)='".$_POST['budget_year']."'AND exp.function='".$_POST['function']."' )) as balance FROM tbl_allotment as app INNER JOIN tbl_accounts as acc ON app.account_code=acc.account_code WHERE acc.acc_category='PERSONAL SERVICES'  AND app.budget_year='".$_POST['budget_year']."' AND app.function_code='".$_POST['function']."'");
         while($row1 = mysqli_fetch_array($query1)){       
           $tbl.='<td style="text-align:right; width:100px">'.number_format($row1['balance'],2).'</td>'; 
         }
