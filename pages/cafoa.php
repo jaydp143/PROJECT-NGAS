@@ -424,22 +424,43 @@ if (isset($_POST['deleteBtn'])) {
                     <div class="form-group row">
                         <label for="address" class="col-sm-2 col-form-label" align="right"><b>REQUEST:</b></label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="request" id="request" rows="3" required>
-                                    
+                            
+                            <input list="request_list" id="display_request" name="request" class="form-control display_request">
+                            <datalist class="request_list" id="request_list">
+                                <?php 
+                                    $select_query1 = mysqli_query($connection,"SELECT DISTINCT request from tbl_obligation");
+                                    while($row = mysqli_fetch_array($select_query1)){ 
+                                    echo "<option>".$row['request']."</option> ";
+                                    }
+                                ?>
+                            </datalist>      
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="address" class="col-sm-2 col-form-label" align="right"><b>PAYEE:</b></label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="payee" id="payee" required>
+                            <input list="payee_list" id="display_payee" name="payee" class="form-control display_payee">
+                            <datalist class="payee_list" id="payee_list">
+                                <?php 
+                                    $select_query1 = mysqli_query($connection,"SELECT DISTINCT payee from tbl_obligation");
+                                    while($row = mysqli_fetch_array($select_query1)){ 
+                                    echo "<option>".$row['payee']."</option> ";
+                                    }
+                                ?>
+                            </datalist> 
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="payee" class="col-sm-2 col-form-label" align="right"><b>FUNCTION:</b></label>
                         <div class="col-md-4">
-                            <input list="function_list" id="display_function" name="function" class="form-control display_function">
-                            <datalist class="function_list" id="function_list">
-                                <option value="ALL"></option>
+                            <input list="f_list" id="display_f" name="function" class="form-control display_f">
+                            <datalist class="f_list" id="f_list">
+                                <?php 
+                                    $select_query1 = mysqli_query($connection,"SELECT DISTINCT function_code, description from tbl_function");
+                                    while($row = mysqli_fetch_array($select_query1)){ 
+                                    echo "<option value='".$row['function_code']."'>".$row['description']."</option> ";
+                                    }
+                                ?>
                             </datalist>
                         </div>
                         <label for="payee" class="col-sm-2 col-form-label" align="right"><b>ALLOTMENT CLASS:</b></label>
@@ -576,19 +597,19 @@ if (isset($_POST['deleteBtn'])) {
         });
 
 
-        $(document).ready(function() {
+        // $(document).ready(function() {
 
-            $('.form-group').on('input', '.prc', function() {
-                var totalSum = 0;
-                $('.prc').each(function() {
-                    var inputVal = $(this).val();
-                    if ($.isNumeric(inputVal)) {
-                        totalSum += parseFloat(inputVal);
-                    }
-                });
-                $('#total').val(totalSum);
-            });
-        });
+        //     $('.form-group').on('input', '.prc', function() {
+        //         var totalSum = 0;
+        //         $('.prc').each(function() {
+        //             var inputVal = $(this).val();
+        //             if ($.isNumeric(inputVal)) {
+        //                 totalSum += parseFloat(inputVal);
+        //             }
+        //         });
+        //         $('#total').val(totalSum);
+        //     });
+        // });
 
         $(document).ready(function() {
             var i = 1;
