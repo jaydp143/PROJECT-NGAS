@@ -96,13 +96,33 @@
             </ul>
           </li>
 
-          <li class="nav-item">
-            <a href="cafoa.php" class="nav-link <?php echo $cafoa; ?>">
-            <i class="far fa-calendar-alt"></i>
-              <p>&emsp;CAFOA</p>
-            </a>
-          </li>
           
+          <li class="nav-item <?php echo $cafoa_nav_item; ?>">
+            <a href="#" class="nav-link <?php echo $cafoa_nav_link; ?>">
+              <i class="far fa-calendar-alt"></i>
+              <p>
+                &emsp;CAFOA
+                <i class="fas fa-angle-left right"></i>
+                <!-- <span class="badge badge-info right">6</span> -->
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./cafoa.php" class="nav-link <?php echo $daily_cafoa; ?>">
+                 &emsp;<i class="far fa-calendar-alt"></i>
+                  <p> &emsp;Daily CAFOA</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./monthly_cafoa.php" class="nav-link <?php echo $monthly_cafoa; ?>">
+                 &emsp;<i class="far fa-calendar-alt"></i>
+                  <p> &emsp;Monthly CAFOA</p>
+                </a>
+              </li>
+             
+            </ul>
+          </li>
+
           <li class="nav-item <?php echo $saao_nav_item; ?>">
             <a href="#" class="nav-link <?php echo $saao_nav_link; ?>">
               <i class="fas fa-chart-area"></i>
@@ -133,6 +153,7 @@
               </li>
             </ul>
           </li>
+         
          
 
           <li class="nav-item <?php echo $raao_nav_item; ?>">
