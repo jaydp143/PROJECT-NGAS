@@ -109,7 +109,7 @@ $pdf = new MYPDF('L', 'mm', array($width,$length), true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('JAY-R');
-$pdf->SetTitle('SAAO Report');
+$pdf->SetTitle('RAAO Report');
 $pdf->SetSubject('TCPDF Tutorial');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 

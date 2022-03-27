@@ -123,13 +123,7 @@ if (isset($_POST['deleteBtn'])) {
             <div class="card-header text-primary ">
                  <h3 class="card-title font-weight-bold ">LIST OF CAFOA</h3>
                 <div class="card-tools">
-                    <form method='GET' action='../report/report_monthly_cafoa.php' target="_blank">
-                        <input type='hidden' name='dy' value='<?php echo $_POST['rp_day']; ?>' />
-                        <input type='hidden' name='mn' value='<?php echo $_POST['rp_month']; ?>' />
-                        <input type='hidden' name='yr' value='<?php echo $_POST['rp_year']; ?>' />
-                        <input type='hidden' name='fc' value='<?php echo $_POST['rp_function']; ?>' />
-                        <button type='submit' class='btn btn-info btn-block text-light' id='btn_generate' name='btn_generate'><i class='fas fa-print'></i><b> GENERATE CAFOA REPORT</b></button>
-                    </form>
+                    
                 </div>
             </div>
             <div class='card-body shadow'>
@@ -225,42 +219,7 @@ if (isset($_POST['deleteBtn'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-
-                                $query = "SELECT obligation_id, total, trans_date, obr_number, allotment_class, function, payee, pr_number, pr_date, request, reference_number FROM tbl_obligation as ob ORDER BY ob.obligation_id DESC LIMIT 100";
-                                $sql = mysqli_query($connection, $query);
-                                $rowCount = 1;
-                                while ($row = mysqli_fetch_array($sql)) {
-                                    $date = date_create($row['trans_date']);
-                                ?>
-
-                                    <tr align="left">
-
-                                        <td><?php echo date_format($date, 'm-d-y'); ?></td>
-                                        <td><?php echo $row['obr_number']; ?></td>
-                                        <td><?php echo $row['function']; ?></td>
-                                        <td><?php echo $row['payee']; ?></td>
-                                        <td><?php echo $row['pr_number']; ?></td>
-                                        <td><?php echo $row['request']; ?></td>
-                                        <td><?php echo $row['allotment_class']; ?></td>
-                                        <td><?php echo number_format($row['total'], 2); ?></td>
-                                        <td><?php echo $row['reference_number']; ?></td>
-                                        <td align="center">
-                                            
-                                                <form name="edit_expense" id="edit_expense" method="POST">
-                                                <div class="btn-group">
-                                                    <input type="hidden" name="id" id="id" value="<?php echo $row["obligation_id"]; ?>" class="form-control" />
-                                                    <a href="edit_cafoa.php?id=<?php echo $row["obligation_id"]; ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                                    <!-- <a class="btn btn-success btn-block text-light btn-sm " data-toggle="modal" data-target="#editModal<?php //echo $row["obligation_id"];                                                                                                    ?>"><i class="fas fa-plus-square"></i></a>                                                     -->
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="confirm_del();return false;" name="deleteBtn" id="deleteBtn" title="Delete User" id="Delete_id"><i class="fas fa-trash"></i></button>
-                                                    </div>
-                                                </form>
-                                            
-
-                                        </td>
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
+                                                            </tbody>
                         </table>
                     </div>
                 </div>

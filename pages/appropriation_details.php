@@ -154,7 +154,7 @@ if (isset($_POST['updateBtn']))
                         <div class="modal fade" id="editModal<?php echo $row['appropriation_id']; ?>"  role="dialog" aria-labelledby="UpdateAppropriation" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
-                                <div class="modal-header bg-primary">
+                                <div class="modal-header bg-info">
                                         <h5 class="modal-title text-light" id="UpdateAppropriation"><i class="fas fa-file-alt"></i> UPDATE APPROPRIATION</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>

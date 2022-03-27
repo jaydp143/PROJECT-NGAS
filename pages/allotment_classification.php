@@ -126,7 +126,7 @@ if (isset($_POST['deleteBtn']))
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-12">
-             <a href="?page=history/manage_record" class="btn btn-primary float-right"><span class="fas fa-plus"></span>  CREATE NEW ALLOTMENT CLASSIFICATIONS</a>
+             <a data-toggle="modal" data-target="#addModal" class="btn btn-primary float-right"><span class="fas fa-plus"></span>  CREATE NEW ALLOTMENT CLASSIFICATIONS</a>
             <h1>ALLOTMENT CLASSIFICATIONS</h1>
             <p><?php echo "Today is   ".date_format(date_create($curDate),"F d, Y");?></p>
            
@@ -256,6 +256,11 @@ if (isset($_POST['deleteBtn']))
       <div class="form-group">
         <label>ALLOTMENT CLASSIFICATION: </label>
         <input type="text" name="category" id="category" class="form-control" />
+      </div>
+
+      <div class="form-group">
+          <label>ACRONYM: </label>
+          <input type="text" name="category" id="category" class="form-control" />
       </div>
 
       </div>

@@ -168,7 +168,7 @@
                                 <div class="modal fade" id="editModal<?php echo $row['allotment_id']; ?>"  role="dialog" aria-labelledby="UpdateAppropriation" aria-hidden="true">
                                 <div class="modal-dialog " role="document">
                                     <div class="modal-content">
-                                        <div class="modal-header bg-primary">
+                                        <div class="modal-header bg-info">
                                                 <h5 class="modal-title text-light" id="UpdateAppropriation"><i class="fas fa-file-alt"></i>  <?php echo $row['account_code']." - ".$row['account_description']; ?></h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
