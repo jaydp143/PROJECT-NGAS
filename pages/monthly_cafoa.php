@@ -146,16 +146,29 @@ if (isset($_POST['deleteBtn'])) {
             <div class="card-header text-primary ">
                  <h3 class="card-title font-weight-bold ">LIST OF CAFOA</h3>
                 <div class="card-tools">
-                    <form method='GET' action='../report/report_monthly_cafoa.php' target="_blank">
+                   
+                </div>
+            </div>
+            <div class='card-body shadow'>
+                <div class='float-right my-2 mx-2'>
+                     <form method='GET' action='../report/report_monthly_cafoa.php' target="_blank">
                         <input type='hidden' name='dy' value='<?php echo $_POST['rp_day']; ?>' />
                         <input type='hidden' name='mn' value='<?php echo $_POST['rp_month']; ?>' />
                         <input type='hidden' name='yr' value='<?php echo $_POST['rp_year']; ?>' />
                         <input type='hidden' name='fc' value='<?php echo $_POST['rp_function']; ?>' />
-                        <button type='submit' class='btn btn-info btn-block text-light' id='btn_generate' name='btn_generate'><i class='fas fa-print'></i><b> GENERATE CAFOA REPORT</b></button>
+                        <button type='submit' class='btn btn-info btn-block text-light float-right' id='btn_generate' name='btn_generate'><i class='fas fa-print'></i><b> GENERATE CAFOA REPORT</b></button>
                     </form>
                 </div>
-            </div>
-            <div class='card-body shadow'>
+                <div class='float-right my-2 mx-2'>
+
+                    <form method='GET' action='../report/excel_monthly_cafoa.php' target="_blank">
+                        <input type='hidden' name='dy' value='<?php echo $_POST['rp_day']; ?>' />
+                        <input type='hidden' name='mn' value='<?php echo $_POST['rp_month']; ?>' />
+                        <input type='hidden' name='yr' value='<?php echo $_POST['rp_year']; ?>' />
+                        <input type='hidden' name='fc' value='<?php echo $_POST['rp_function']; ?>' />
+                        <button type='submit' class='btn btn-info btn-block text-light float-right' id='btn_excel' name='btn_excel'><i class='fas fa-print'></i><b> GENERATE EXCEL</b></button>
+                    </form>
+                </div>  
                 <div class="table-responsive ml-2 mr-2">
 
                     <table id="dataTables-example" class="table table-striped table-bordered table-sm " style=" width:100%">

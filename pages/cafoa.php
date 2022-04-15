@@ -52,6 +52,7 @@ if (isset($_POST['deleteBtn'])) {
         <div class="row">
           <div class="col-sm-12">
                <a data-toggle="modal" data-target="#addModal" class="btn btn-primary float-right"><span class="fas fa-plus"></span> <b> CREATE NEW CAFOA ENTRY</b></a>
+               
             <h1>CERTIFICATION ON APPROPRIATIONS, FUND AND OBLIGATION OF ALLOTMENT (CAFOA)</h1>
             <p><?php echo "Today is   ".date_format(date_create($curDate),"F d, Y");?></p>
             <hr>
